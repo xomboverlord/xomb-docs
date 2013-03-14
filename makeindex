@@ -1,0 +1,14 @@
+#!/bin/sh
+
+rm -f index.html
+rm -f index.tmp
+echo "<html><head><title>XOmB Kernel Code Documentation</title></head><body><ul>" > index.tmp
+
+for item in `find -name *.html`;
+do
+  echo "<li><a href='${item:2}'>${item:2}</a></li>" >> index.tmp
+done
+
+echo "</ul></body></html>" >> index.tmp
+
+mv index.tmp index.html
